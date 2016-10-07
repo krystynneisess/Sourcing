@@ -1,0 +1,21 @@
+Reference Designator,Value,Package,Description,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Notes
+C2,0.1 uF,0603-CAP,Capacitor,"Samsung Electro-Mechanics America, Inc",CL10B104KO8NNNC,DigiKey,1276-1005-2-ND,"at least 16V, prefer X5R/X7R (avoid Y5V)"
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM,ARUINO_PRO_MICRO,ARDUINO_PRO_MICRO,Arduino Pro Micro,Feiyang electronics,,AliExpress,32284746884,AliExpress
+LED1,RED,LED-0805,LEDs,Lite-On Inc,LTST-C170KRKT,DigiKey,160-1415-1-ND,Check polarity and polarity markings
+LED2,RED,LED-0805,LEDs,Lite-On Inc,LTST-C170KRKT,DigiKey,160-1415-1-ND,Check polarity and polarity markings
+LED3,RED,LED-0805,LEDs,Lite-On Inc,LTST-C170KRKT,DigiKey,160-1415-1-ND,Check polarity and polarity markings
+LED4,RED,LED-0805,LEDs,Lite-On Inc,LTST-C170KRKT,DigiKey,160-1415-1-ND,Check polarity and polarity markings
+LED5_,BLUE,LED5MM-NOFLAT,LEDs,Kingbright,WP7113LVBC/D,DigiKey,754-1919-ND,
+LED6_,YELLOW,LED5MM-NOFLAT,LEDs,Kingbright,WP7113SYD,DigiKey,754-1739-ND,
+Q1,IRFML8244,SOT23-3,"N-Type MOSFET, SOT23-3 Package",International Rectifier,IRFML8244TRPBF,DigiKey,IRFML8244TRPBFCT-ND,Substituting with equal or higher-rated part OK.
+Q2,IRFML8244,SOT23-3,"N-Type MOSFET, SOT23-3 Package",International Rectifier,IRFML8244TRPBF,DigiKey,IRFML8244TRPBFCT-ND,Substituting with equal or higher-rated part OK.
+R1,200,R0603,"RESISTOR, American symbol","Samsung Electro-Mechanics America, Inc",RC1608J201CS,DigiKey,1276-5045-2-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R2,200,R0603,"RESISTOR, American symbol","Samsung Electro-Mechanics America, Inc",RC1608J201CS,DigiKey,1276-5045-2-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R3,10k,R0603,"RESISTOR, American symbol",Yageo,RC0603JR-0710KL,DigiKey,311-10KGRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R4,10k,R0603,"RESISTOR, American symbol",Yageo,RC0603JR-0710KL,DigiKey,311-10KGRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R5,130,R0603,"RESISTOR, American symbol",Yageo,RC0603JR-07130RL,DigiKey,311-130GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R6,130,R0603,"RESISTOR, American symbol",Yageo,RC0603JR-07130RL,DigiKey,311-130GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R7,130,R0603,"RESISTOR, American symbol",Yageo,RC0603JR-07130RL,DigiKey,311-130GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R8,130,R0603,"RESISTOR, American symbol",Yageo,RC0603JR-07130RL,DigiKey,311-130GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"

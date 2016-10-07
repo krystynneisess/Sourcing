@@ -1,0 +1,32 @@
+Reference Designator,Value,Package,Description,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Notes
+DISP,7-SEG-4DIG,7-SEGMENT-4DIGIT,7-SEGMENT-4DIGIT-YOUNGSUN,Vishay Semiconductor Opto Division,TDCG1050M,DigiKey,TDCG1050M-ND,
+JP1,XH_CONN,XH_CONNECTOR_4POS,XH_CONNECTOR_4POS_2.5MM,4-pin XH connector (through-hole type shrouded header),,DigiKey,455-2249-ND,
+JP2,,M02PTH,1X02,3M,2312-6111-TG,DigiKey,3M11925-ND,cut into 2-pin pieces.
+LED1,RED,LED0805,LED-0805,LEDs,,DigiKey,160-1415-1-ND,
+LS1,BUZZER,BUZZER,BUZZER_MAGNETIC_5V_12MM_RADIAL,Buzzer,,DigiKey,102-1269-ND,
+Q1,IRFML8244,N-CHANNEL-MOSFETSOT23-3,SOT23-3,N-channel TrenchMOS (TM) logic level FET,,DigiKey,IRFML8244TRPBFCT-ND,
+Q2,IRFML8244,N-CHANNEL-MOSFETSOT23-3,SOT23-3,N-channel TrenchMOS (TM) logic level FET,,DigiKey,IRFML8244TRPBFCT-ND,
+Q3,PMOSFET,P-CHANNEL-MOSFETSOT23-3,SOT23-3,P-Channel PowerTrench¬Æ MOSFET,IRLML6402PBFCT-ND,DigiKey,IRLML6402PBFCT-ND,
+Q4,P-CHANNEL-MOSFETSOT23-3,P-CHANNEL-MOSFETSOT23-3,SOT23-3,P-Channel PowerTrench¬Æ MOSFET,IRLML6402PBFCT-ND,DigiKey,IRLML6402PBFCT-ND,
+Q5,P-CHANNEL-MOSFETSOT23-3,P-CHANNEL-MOSFETSOT23-3,SOT23-3,P-Channel PowerTrench¬Æ MOSFET,IRLML6402PBFCT-ND,DigiKey,IRLML6402PBFCT-ND,
+R1,10k,R-US_R0603,R0603,,,DigiKey,311-10KGRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R2,10k,R-US_R0603,R0603,,,DigiKey,RR08P10.0KDCT-ND,0.5% Or better
+R3,30k,R-US_R0603,R0603,,,DigiKey,RR08P30.0KDCT-ND,0.5% Or better
+R4,51k,R-US_R0603,R0603,,,DigiKey,RR08P51.0KDTR-ND,0.5% Or better
+R5,10k,R-US_R0603,R0603,,,DigiKey,RR08P10.0KDCT-ND,0.5% Or better
+R6,10k,R-US_R0603,R0603,,,DigiKey,RR08P10.0KDCT-ND,0.5% Or better
+R7,10k,R-US_R0603,R0603,,,DigiKey,RR08P10.0KDCT-ND,0.5% Or better
+R8,10k,R-US_R0603,R0603,,,DigiKey,311-10KGRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R9,100,R-US_R0603,R0603,,,DigiKey,RHM100CGTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R10,10k,R-US_R0603,R0603,,,DigiKey,311-10KGRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R11,130,R-US_R0603,R0603,,,DigiKey,311-130GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R12,330,R-US_R0603,R0603,,,DigiKey,311-330GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R13,330,R-US_R0603,R0603,,,DigiKey,311-330GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R14,330,R-US_R0603,R0603,,,DigiKey,311-330GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R15,330,R-US_R0603,R0603,,,DigiKey,311-330GRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R16,10k,R-US_R0603,R0603,,,DigiKey,311-10KGRTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+S1,DPST_SWITCH,DPST_SWITCH,C&K_SWITCH,"Double Throw, single pole normally open pushbutton switch.",,DigiKey,401-1133-ND,
+S2,DPST_SWITCH,DPST_SWITCH,C&K_SWITCH,"Double Throw, single pole normally open pushbutton switch.",,DigiKey,401-1133-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM,ARUINO_PRO_MICRO,ARDUINO_PRO_MICRO,Arduino Pro Micro,Feiyang electronics,,AliExpress,32284746884,AliExpress

@@ -1,0 +1,5 @@
+Reference Designator,Value,Package,Description,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Notes
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM,ARUINO_PRO_MICRO,ARDUINO_PRO_MICRO,Arduino Pro Micro,Feiyang electronics,,AliExpress,32284746884,AliExpress
+IC1,RFID_SENSOR,RFID_SENSOR,,Binling Gooding,,AliExpress,32657638702,RFID Reader

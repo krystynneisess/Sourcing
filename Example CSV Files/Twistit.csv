@@ -1,0 +1,9 @@
+Reference Designator,Value,Package,Description,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Notes
+JP1,,JP1,JUMPER,Harwin. Inc,M20-9990246,DigiKey,952-2262-ND,
+R1,330,R0603,"RESISTOR, American symbol",Rohm Semiconductor,MCR03ERTJ331,DigiKey,RHM330CGTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R2,330,R0603,"RESISTOR, American symbol",Rohm Semiconductor,MCR03ERTJ331,DigiKey,RHM330CGTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+R3,330,R0603,"RESISTOR, American symbol",Rohm Semiconductor,MCR03ERTJ331,DigiKey,RHM330CGTR-ND,"5% or better, power dissipation and temp. coeff. not critical"
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM,ARUINO_PRO_MICRO,ARDUINO_PRO_MICRO,Arduino Pro Micro,Feiyang electronics,,AliExpress,32284746884,AliExpress
+ST1,,5PIN_SCREW,5 pin Screw Terminal,Phoenix Contact,1729047,DigiKey,277-1239-ND,
