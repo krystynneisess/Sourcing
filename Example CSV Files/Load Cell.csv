@@ -1,0 +1,7 @@
+Reference Designator,Value,Package,Description,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Notes
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM,ARUINO_PRO_MICRO,ARDUINO_PRO_MICRO,Arduino Pro Micro,Feiyang electronics,,AliExpress,32284746884,AliExpress
+IC1 HEADER,LOADCELL_AMP,LOADCELL_AMP,Sparkfun HX711 Load Cell Amp,3M,929974-01-05-RK,DigiKey,929974E-01-05-ND,
+IC1,LOADCELL_AMP,LOADCELL_AMP,Sparkfun HX711 Load Cell Amp,,,Sparkfun,SEN-13879,HX711
+JP1,,M041X04-MTA,4-pin 0.1-inch header and MTA connector,TE Connectivity,640456-4,DigiKey,A1922-ND,

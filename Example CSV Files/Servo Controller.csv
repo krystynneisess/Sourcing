@@ -1,0 +1,10 @@
+Reference Designator,Value,Package,Description,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Notes
+CONN1 METAL,12V,ANDERSON_VERTICAL,25A Anderson METAL BOARD CONN,Anderson Power Products,1377G2-BK,Allied Electronics,70162019,Length may vary
+CONN1 METAL,12V,ANDERSON_VERTICAL,25A Anderson METAL BOARD CONN,Anderson Power Products,1377G2-BK,Allied Electronics,70162019,Length may vary
+CONN1 BLACK,ANDERSONVERTICAL,ANDERSON_VERTICAL,25A Anderson BLACK,Anderson Power Products,1327G6-BK,Allied Electronics,70162000,
+CONN1 RED,ANDERSONVERTICAL,ANDERSON_VERTICAL,25A Anderson RED,Anderson Power Products,1327FP-BK,Allied Electronics,70162010,
+JP1,,1X03-MTA,3-pin 0.1-inch header and MTA connector,TE Connectivity,640456-3,DigiKey,A19470-ND,
+JP2,,1X03-MTA,3-pin 0.1-inch header and MTA connector,TE Connectivity,640456-3,DigiKey,A19470-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM HEADER,,ARDUINO_PRO_MICRO,Standard Female Headers,3M,929974-01-12-RK,DigiKey,929974E-01-12-ND,
+APM,ARUINO_PRO_MICRO,ARDUINO_PRO_MICRO,Arduino Pro Micro,Feiyang electronics,,AliExpress,32284746884,AliExpress

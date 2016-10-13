@@ -1,0 +1,104 @@
++============================================+
+|            URL Generation Guide            |
++============================================+
+
+Contents
+--------------------------
+1. Introduction
+2. Generation Reference by Manufacturer
+	2a. Generalizable URL's
+	2b. Fixed URL's
+
+
+
+
++============================================+
+|              1.  INTRODUCTION              |
++============================================+
+
+Let us say each link is composed of a prefix, body, and suffix.  For example, in the link
+	http://www.alliedelec.com/anderson-power-products-1377g2-bk/70162020/
+the prefix is 
+	"http://www.alliedelec.com/anderson-power-products-1377g2-"
+the body is 
+	"1377g2-bk/70162020"
+and the suffix (in this case, empty) is 
+	"/"
+
+For a given distributor, the prefix and suffix are identical for all parts.  The body, however, is unique to each part, often determined by values like the manufacturer part number or distributor part number.  
+
+Because the format of the body varies from manufacturer to manufacturer, a more detailed description of its construction will also be provided.  For example, in this case, the body is formatted as
+	"<manufacturer part number>/<distributor part number>"
+where "1377g2-bk" and "70162020" are the manufacturer and distributor part numbers, respectively.
+
+
+
+
++============================================+
+|  2.  GENERATION REFERENCE BY MANUFACTURER  |
++============================================+
+
+2a.  GENERALIZABLE URLs
+------------------------------------------
+
+These are vendors whose URLs can be derived from a general form.  These are described using the pattern presented in the introduction.  
+
+Digikey
+	Prefix:  "http://www.digikey.com/product-search/en?keywords="
+	Body:  "<distributor part number>"
+	Suffix:  ""
+
+	Example:  http://www.digikey.com/product-search/en?keywords=952-2262-ND
+		where the distributor part number is "952-2262-ND".
+
+	
+Allied Electronics
+	Prefix:  "http://www.alliedelec.com/anderson-power-products-"
+	Body:  "<manufacturer part number>/<distributor part number>"
+	Suffix:  ""
+
+	Example:  http://www.alliedelec.com/anderson-power-products-1377g2-bk/70162020
+		where the manufacturer part number is "1377g2-bk" and distributor part number is "70162020" 
+
+SparkFun
+	Prefix:  "https://www.sparkfun.com/products/"
+	Body:  "<distributor part number without "PRT-" and leading zeros>"
+	Suffix:  ""
+	
+	Example:  https://www.sparkfun.com/products/743
+		where the distributor part number is "PRT-00743"
+
+Waytek
+	Prefix:  "https://www.waytekwire.com/item/"
+	Body:  "<distributor part number>"
+	Suffix:  "/"
+
+	Example:  https://www.waytekwire.com/item/46977/
+
+
+2b.  FIXED URLS
+------------------------------------------
+
+These are vendors whose URLs CANNOT be derived from a general form.  As such, their URls are *hard coded*.  Conveniently, we only order a single part from said venders--however, this may change in the future, so keep an eye out for updates to this section.
+
+AliExpress
+	Prefix:  "https://www.aliexpress.com/item/Mini-Leonardo-Pro-Micro-ATmega32U4-5V-16MHz-Module-For-Arduino-Best-Quality/"
+	Body:  "<distributor part number>"
+	Suffix:  ".html"
+
+	Example:  https://www.aliexpress.com/item/Mini-Leonardo-Pro-Micro-ATmega32U4-5V-16MHz-Module-For-Arduino-Best-Quality/32284746884.html
+		where the distributor part number is "32284746884".
+
+HobbyKing
+	Prefix:  "http://www.hobbyking.com/hobbyking/store/"
+	Body:  "__10414__Male_XT60_Connectors_5pcs_bag_GENUINE"
+	Suffix:  ".html" 
+
+	Example:  http://www.hobbyking.com/hobbyking/store/__10414__Male_XT60_Connectors_5pcs_bag_GENUINE.html
+
+
+
+
+
+
+

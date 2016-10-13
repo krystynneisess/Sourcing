@@ -1,0 +1,17 @@
+In this directory are example BOMs for each of our Year 9 Rev A boards:  
+	Battery Buzzer
+	Load Cell
+	PDB
+	RFID
+	Servo Controller
+	Team Flag
+	Twistit
+	Yogi Bear
+
+Each corresponding BOM is named <Board Name>.csv.
+
+In addition, there are two other CSV files, Board Quantity.csv and Example Aggregation Output.csv.
+
+Board Quantity.csv provides the quantities of each board ordered.
+
+Example Aggregation Output.csv is provided as a reference for what the output of your aggregation script may possibly look like.  I encourage you to experiment with alternative output formats if you are so inclined--but if not, following this format is perfectly acceptable.
