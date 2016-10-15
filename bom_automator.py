@@ -1,11 +1,12 @@
 import csv
+import sys
 import distributor_cart as dc
 
 class BomAutomator:
 	def __init__(self):
 		self.distributor_carts = {} # a dictionary mapping distributor names to DistributorCart objects
 		self.board_qty = {} # a dictionary mapping a board's name to its quantity
-
+	
 	def get_board_qty(self):
 		return self.board_qty
 
@@ -30,21 +31,50 @@ class BomAutomator:
 
 		Note that a board's bom marts parts from a variety of distributors.
 		"""
+		# Track current board name for later aggregation
+		currBoard = csv_file.replace("_", " ");
+		currBoard = currBoard[0 : len(currBoard) - 4];
+
+		# Read file
 		with open(csv_file, 'rt', encoding = 'ISO-8859-1') as f:
 			reader = csv.reader(f)
-			colNames = next(reader)
+			colNames = next(reader) # Gets row of all the column names
 			indexDistributor = 0
-			# Finding the distributor column
+			# Finding the index of the distributor column
 			for i in range(len(colNames)):
 				if colNames[i].lower() == 'distributor':
 					indexDistributor = i
 					break
 			# Populate distributor_carts
 			for row in reader:
-				name = row[indexDistributor]
-				if name not in self.distributor_carts.keys():
-					self.distributor_carts[name] = dc.DistributorCart(name)
+				dName = row[indexDistributor]
+				partNum = row[indexDistributor + 1]
+				if dName.lower() == "allied electronics": # Need manufacturer number for URL
+					partNum = row[indexDistributor - 1] + "/" + partNum
+				# First check if distributor name is already in distributor_carts
+				if dName not in self.distributor_carts.keys():
+					self.distributor_carts[dName] = dc.DistributorCart(dName) # Create DistributorCart
+				# Get the cart object
+				dCart = self.distributor_carts[dName]
+				dCart_order_qty = dCart.get_qty_dict()
+				# Check if part number is already logged
+				if partNum not in dCart_order_qty.keys():
+					dCart_order_qty[partNum] = 1 * self.board_qty[currBoard]
+				else:
+					dCart_order_qty[partNum] += 1 * self.board_qty[currBoard]
 
+def main(args):
+	auto = BomAutomator()
+	# Read in command-line arguments
+	for file in args[1:]:
+		if file == "board_qty.csv":
+			auto.init_board_qty(file)
+		else:
+			auto.process_board(file) # Create distributorCart object for each board
+	# Create all CSV files
+	for cart in auto.distributor_carts:
+		auto.distributor_carts[cart].generate_part_number_csv();
+		auto.distributor_carts[cart].generate_url_csv();
 
 if __name__ == '__main__':
 	"""
@@ -56,19 +86,8 @@ if __name__ == '__main__':
 	- use DistributorCart methods to output a csv representing each distributor_cart
 
 	"""
-	# Test DistributorCart
-	test1 = dc.DistributorCart("sparkfun")
-	test1.get_qty_dict()['ppp1'] = 2
-	test1.get_qty_dict()['ppp2'] = 3
-	test1.get_qty_dict()['ppp3'] = 4
-	test1.generate_part_number_csv()
-	print(test1.generate_url("HEY8432"))
+	main(sys.argv)
 
-	# Test BomAutomator
-	t2 = BomAutomator()
-	t2.init_board_qty('board_qty.csv')
-	print(t2.get_board_qty())
-	t2.process_board('bom_ex.csv')
-	print(t2.get_distributor_carts())
+
 
 	
