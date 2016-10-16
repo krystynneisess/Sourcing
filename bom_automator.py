@@ -67,10 +67,13 @@ def main(args):
 	auto = BomAutomator()
 	# Read in command-line arguments
 	for file in args[1:]:
-		if file == "board_qty.csv":
+		if file == "board_qty.csv": # Need to initialize board_qty first befoe processing any board
 			auto.init_board_qty(file)
-		else:
+	
+	for file in args[1:]:
+		if file != "board_qty.csv":
 			auto.process_board(file) # Create distributorCart object for each board
+	
 	# Create all CSV files
 	for cart in auto.distributor_carts:
 		auto.distributor_carts[cart].generate_part_number_csv();

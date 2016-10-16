@@ -25,7 +25,7 @@ class DistributorCart:
 		"""
 		s = "%s.csv" % (self.distributor_name)
 		with open(s, 'a') as x:
-			writer = csv.writer(x)
+			writer = csv.writer(x, lineterminator = '\n')
 			writer.writerow(["Quantity", "Part Number"])
 			for part_number in self.order_qty:
 				writer.writerow([int(self.order_qty[part_number]), part_number])
@@ -55,7 +55,7 @@ class DistributorCart:
 		"""
 		s = "%s_url.csv" % (self.distributor_name)
 		with open(s, 'a') as x:
-			writer = csv.writer(x)
+			writer = csv.writer(x, lineterminator = '\n')
 			writer.writerow(["Quantity", "URL"])
 			for part in self.order_qty:
 				writer.writerow([int(self.order_qty[part]), self.generate_url(part)])
