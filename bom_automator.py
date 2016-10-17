@@ -33,7 +33,7 @@ class BomAutomator:
 		"""
 		# Track current board name for later aggregation
 		currBoard = csv_file.replace("_", " ");
-		currBoard = currBoard[0 : len(currBoard) - 4];
+		currBoard = currBoard[0 : len(currBoard) - 4]; # truncate the .csv part
 
 		# Read file
 		with open(csv_file, 'rt', encoding = 'ISO-8859-1') as f:
