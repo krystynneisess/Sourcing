@@ -28,7 +28,10 @@ class DistributorCart:
 			writer = csv.writer(x, lineterminator = '\n')
 			writer.writerow(["Quantity", "Part Number"])
 			for part_number in self.order_qty:
-				writer.writerow([int(self.order_qty[part_number]), part_number])
+				if "/" in part_number:
+					writer.writerow([int(self.order_qty[part_number]), part_number[part_number.index("/") + 1:]])
+				else:
+					writer.writerow([int(self.order_qty[part_number]), part_number])
 		
 	def generate_url(self, part_number):
 		"""
