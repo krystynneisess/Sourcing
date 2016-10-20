@@ -39,8 +39,7 @@ class DistributorCart:
 		part_number = str(part_number)
 		url = "";
 		if name not in self.distributor_urls.keys():
-			print(name)
-			sys.exit("Currently cannot generate URL for distributor")
+			sys.exit("We currently cannot generate URL for %s" % name)
 		else:
 			if name == "sparkfun":
 				part_number = part_number[4:].strip("0") # need to strip the 0s for URL

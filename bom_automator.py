@@ -1,6 +1,7 @@
 import csv
 import sys
 import distributor_cart as dc
+import readline
 
 class BomAutomator:
 	def __init__(self):
@@ -22,7 +23,7 @@ class BomAutomator:
 			reader = csv.reader(f)
 			colNames = next(reader) # don't need to keep first row
 			for row in reader:
-				self.board_qty[row[0]] = int(row[1])
+				self.board_qty[row[0].lower()] = int(row[1])
 
 	def process_board(self, csv_file):
 		"""
@@ -32,8 +33,11 @@ class BomAutomator:
 		Note that a board's bom marts parts from a variety of distributors.
 		"""
 		# Track current board name for later aggregation
-		currBoard = csv_file.replace("_", " ");
-		currBoard = currBoard[0 : len(currBoard) - 4]; # truncate the .csv part
+		currBoard = csv_file.replace("_", " ").lower();
+		if (currBoard[len(currBoard) - 3:] != "csv"):
+			print("%s is not a csv file." % currBoard)
+			return
+		currBoard = currBoard[0 : len(currBoard) - 4] # truncate the .csv part
 
 		# Read file
 		with open(csv_file, 'rt', encoding = 'ISO-8859-1') as f:
@@ -63,14 +67,15 @@ class BomAutomator:
 				else:
 					dCart_order_qty[partNum] += 1 * self.board_qty[currBoard]
 
-def main(args):
+def main(str):
 	auto = BomAutomator()
+	files = str.split() # default delimiter is space
 	# Read in command-line arguments
-	for file in args[1:]:
+	for file in files:
 		if file == "board_qty.csv": # Need to initialize board_qty first befoe processing any board
 			auto.init_board_qty(file)
 	
-	for file in args[1:]:
+	for file in files:
 		if file != "board_qty.csv":
 			auto.process_board(file) # Create distributorCart object for each board
 	
@@ -89,7 +94,12 @@ if __name__ == '__main__':
 	- use DistributorCart methods to output a csv representing each distributor_cart
 
 	"""
-	main(sys.argv)
+	print("Please pass in your board files and board quantity file following these instructions:")
+	print("\tAll files should be in the same directory, so you can pass in a file as 'boardName.csv', instead of 'anotherDir/boardName.csv'")
+	print("\tThe file containing board quantity is titled 'board_qty.csv'.")
+	print("\tThe board files are titled 'boardName.csv', with spaces replaced with underscore, e.g. 'Battery_Buzzer.csv'")
+	s = input("Please input your files: ")
+	main(s)
 
 
 
