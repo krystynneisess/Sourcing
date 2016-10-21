@@ -28,7 +28,10 @@ class DistributorCart:
 			writer = csv.writer(x, lineterminator = '\n')
 			writer.writerow(["Quantity", "Part Number"])
 			for part_number in self.order_qty:
-				writer.writerow([int(self.order_qty[part_number]), part_number])
+				if "/" in part_number:
+					writer.writerow([int(self.order_qty[part_number]), part_number[part_number.index("/") + 1:]])
+				else:
+					writer.writerow([int(self.order_qty[part_number]), part_number])
 		
 	def generate_url(self, part_number):
 		"""
@@ -39,11 +42,10 @@ class DistributorCart:
 		part_number = str(part_number)
 		url = "";
 		if name not in self.distributor_urls.keys():
-			print(name)
-			sys.exit("Currently cannot generate URL for distributor")
+			sys.exit("We currently cannot generate URL for %s" % name)
 		else:
 			if name == "sparkfun":
-				part_number = part_number[4:].strip("0")
+				part_number = part_number[4:].strip("0") # need to strip the 0s for URL
 			distributor = self.distributor_urls[name]
 			url = distributor[0] + part_number + distributor[1]
 		return "%s" % (url)
