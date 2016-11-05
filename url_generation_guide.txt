@@ -44,13 +44,17 @@ where "1377g2-bk" and "70162020" are the manufacturer and distributor part numbe
 These are vendors whose URLs can be derived from a general form.  These are described using the pattern presented in the introduction.  
 
 Digikey
-	Prefix:  "http://www.digikey.com/product-search/en?keywords="
-	Body:  "<distributor part number>"
+	Prefix:  "http://www.digikey.com/product-detail/en/"
+	Body:  "<reduced manufacturer name>/<manufacturer part number>/<distributor part number>"
 	Suffix:  ""
 
 	Example:  http://www.digikey.com/product-search/en?keywords=952-2262-ND
 		where the distributor part number is "952-2262-ND".
 
+	Note:  A "reduced manufacturer name" is one in lowercase with all punctuation and whitespace removed.  Example conversions to reduced form are as follows:
+		"Yageo" --> "yageo"
+		"Lite-On Inc" --> "liteoninc"
+		"Samsung Electro-Mechanics America, Inc" --> "samsungelectromechanicsamericainc"
 	
 Allied Electronics
 	Prefix:  "http://www.alliedelec.com/anderson-power-products-"
