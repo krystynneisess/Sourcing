@@ -41,9 +41,8 @@ class DigikeyAutomator:
 	def submit_form(self, url):
 		self.driver.find_element_by_id("addtoorderbutton").click()
 		self.driver.refresh()
-		#self.driver.close()
 
-"""Processes a Digikey CSV file containg quantity and URL.
+"""Processes a Digikey CSV file containing quantity and URL.
 """
 def main(fileName):
 	automator = DigikeyAutomator()
@@ -54,6 +53,14 @@ def main(fileName):
 	for url in automator.listURLs.keys():
 		automator.fill_form(url)
 		automator.submit_form(url)
+	automator.driver.get(automator.driver.current_url)
+	webID = automator.driver.find_element_by_id("ctl00_ctl00_topContentPlaceHolder_lblWebID").text
+	accessID = automator.driver.find_element_by_id("ctl00_ctl00_topContentPlaceHolder_lblAccessID").text
+
+	with open('digikey_shoppingCart.txt', 'w') as f:
+		f.write("DigiKey Shopping Cart\n")
+		f.write("Web ID: " + str(webID) + "\n")
+		f.write("Access ID: " + str(accessID))
 
 """Call the Main function."""
 if __name__ == '__main__':
