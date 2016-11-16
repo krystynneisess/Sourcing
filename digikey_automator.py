@@ -2,6 +2,7 @@
 Automating shopping cart for Digikey orders.
 """
 import csv
+import time
 import os
 import readline
 from selenium import webdriver
@@ -14,6 +15,7 @@ class DigikeyAutomator:
 	def __init__(self):
 		self.listURLs = {}
 		self.driver = None
+		self.qtyField = None
 
 	""" Reads in CSV_FILE and puts URLs into listURLs. COULD POSSIBLY DO IN MAIN
 	"""
@@ -28,30 +30,18 @@ class DigikeyAutomator:
 	"""Fill out form for one URL.
 	"""
 	def fill_form(self, url):
-		self.driver = webdriver.Chrome("C:/Users/Kimberly/Desktop/chromedriver.exe")
 		self.driver.get(url)
 		# Get quantity text field
-		qtyField = self.driver.find_element_by_name("qty")
+		self.qtyField = self.driver.find_element_by_name("qty")
 		# Populate quantity in text field
-		qtyField.send_keys(self.listURLs[url])
+		self.qtyField.send_keys(self.listURLs[url])
 
 	"""Submit shopping cart form.
 	"""
 	def submit_form(self, url):
-		# get SUBMIT button
-		#submitButton = driver.find_element_by_id("addtoorderbutton")
-		# click SUBMIT
-		#submitButton.click()
-
-		# OR
-		form = self.driver.find_element_by_id("update-quantity")
-		form.submit()
-
-		# Clear the contents of the QUANTITY text field
-		qtyField.clear()
-
-		# Close the driver
-		self.driver.close()
+		self.driver.find_element_by_id("addtoorderbutton").click()
+		self.driver.refresh()
+		#self.driver.close()
 
 """Processes a Digikey CSV file containg quantity and URL.
 """
@@ -59,13 +49,13 @@ def main(fileName):
 	automator = DigikeyAutomator()
 	# Populate dictionary of URLs
 	automator.get_URLs(fileName)
+	automator.driver = webdriver.Chrome("C:/Users/Kimberly/Desktop/chromedriver.exe")
 	# Fill form for each URL
-	self.driver = webdriver.Chrome()
 	for url in automator.listURLs.keys():
 		automator.fill_form(url)
 		automator.submit_form(url)
 
 """Call the Main function."""
 if __name__ == '__main__':
-	s = input("Please input your DigiKey file: ")
-	main(s)
+	#s = input("Please input your DigiKey file: ")
+	main("DigiKey_url.csv")
