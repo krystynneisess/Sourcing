@@ -5,8 +5,11 @@ import csv
 import time
 import os
 import readline
+import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException 
+from selenium.common.exceptions import NoAlertPresentException
 
 class DigikeyAutomator:
 	
@@ -16,6 +19,9 @@ class DigikeyAutomator:
 		self.listURLs = {}
 		self.driver = None
 		self.qtyField = None
+		self.x = 0
+		# Hard-coded in trying to navigate through the problem of the pop-up
+		listURLs["http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND"] = 1
 
 	""" Reads in CSV_FILE and puts URLs into listURLs. COULD POSSIBLY DO IN MAIN
 	"""
@@ -40,7 +46,23 @@ class DigikeyAutomator:
 	"""
 	def submit_form(self, url):
 		self.driver.find_element_by_id("addtoorderbutton").click()
-		self.driver.refresh()
+
+		try:
+			#popup = self.driver.switch_to_alert()
+			#popup.find_element_by_name("ctl00$ctl00$mainContentPlaceHolder$mainContentPlaceHolder$btnAddToOrder").click()
+			self.driver.find_element_by_name("ctl00$ctl00$mainContentPlaceHolder$mainContentPlaceHolder$btnAddToOrder").click()
+		except NoSuchElementException:
+			x = 0
+			# Need to disable value calculator
+		# try:
+		# 	#popup = self.driver.switch_to_alert()
+		# 	#popup.find_element_by_name("ctl00$ctl00$mainContentPlaceHolder$mainContentPlaceHolder$btnAddToOrder").click()
+		# 	#el = self.driver.find_elements_by_xpath("//div[@id='divAddPartButtons']//input[@id='btnAdd']")
+		# 	js = "document.getElementById('btnAdd').click()"
+		# 	self.driver.execute_script(js)
+		# 	print(el)
+		# except NoSuchElementException:
+		# 	print("hi")
 
 """Processes a Digikey CSV file containing quantity and URL.
 """
@@ -49,7 +71,13 @@ def main(fileName):
 	# Populate dictionary of URLs
 	automator.get_URLs(fileName)
 	automator.driver = webdriver.Chrome("C:/Users/Kimberly/Desktop/chromedriver.exe")
-	# Fill form for each URL
+	# Hard-coded URL that enables us to disable the pop-up for adding future products to cart
+	# This product, with part number 311-130GRCT-ND, will show up
+	automator.fill_form("http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND");
+	automator.submit_form("http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND");
+	time.sleep(10)
+
+	#Fill form for each URL
 	for url in automator.listURLs.keys():
 		automator.fill_form(url)
 		automator.submit_form(url)
@@ -57,6 +85,7 @@ def main(fileName):
 	webID = automator.driver.find_element_by_id("ctl00_ctl00_topContentPlaceHolder_lblWebID").text
 	accessID = automator.driver.find_element_by_id("ctl00_ctl00_topContentPlaceHolder_lblAccessID").text
 
+	# Write shopping cart info to text file
 	with open('digikey_shoppingCart.txt', 'w') as f:
 		f.write("DigiKey Shopping Cart\n")
 		f.write("Web ID: " + str(webID) + "\n")
