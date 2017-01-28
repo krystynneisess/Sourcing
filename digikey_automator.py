@@ -20,8 +20,7 @@ class DigikeyAutomator:
 		self.driver = None
 		self.qtyField = None
 		self.x = 0
-		# Hard-coded in trying to navigate through the problem of the pop-up
-		listURLs["http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND"] = 1
+	
 
 	""" Reads in CSV_FILE and puts URLs into listURLs. COULD POSSIBLY DO IN MAIN
 	"""
@@ -72,12 +71,19 @@ def main(fileName):
 	automator.get_URLs(fileName)
 	automator.driver = webdriver.Chrome("C:/Users/Kimberly/Desktop/chromedriver.exe")
 	# Hard-coded URL that enables us to disable the pop-up for adding future products to cart
-	# This product, with part number 311-130GRCT-ND, will show up
+	""" This product, with part number 311-130GRCT-ND, will show up in the shopping cart 
+		in one of the following ways:
+		(1) Product is one of the products to be ordered but the quantity is wrong.
+		(2) Product is not one of the products to be ordered.
+		In both cases, take appropriate action in deleting or changing the quantity. 
+	"""
+	# Hard-coded in trying to navigate through the problem of the pop-up
+	automator.listURLs["http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND"] = 1
 	automator.fill_form("http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND");
 	automator.submit_form("http://www.digikey.com/product-detail/en/yageo/RC0603JR-07130RL/311-130GRCT-ND");
 	time.sleep(10)
 
-	#Fill form for each URL
+	# Fill form for each URL
 	for url in automator.listURLs.keys():
 		automator.fill_form(url)
 		automator.submit_form(url)
@@ -93,5 +99,5 @@ def main(fileName):
 
 """Call the Main function."""
 if __name__ == '__main__':
-	#s = input("Please input your DigiKey file: ")
-	main("DigiKey_url.csv")
+	s = input("Please input your DigiKey file: ")
+	main(s)
