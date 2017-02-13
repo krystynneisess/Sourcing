@@ -1,0 +1,44 @@
+Software Dependencies:
+As of January 2017, confirmed to work with:
+Windows OS
+Python 3.5
+Required:
+Python
+Chrome Webdriver
+Python Selenium
+
+File names and contents:
+bom_automator.py: Reads board quantity and distributor cart files and creates distributor_cart objects.
+distributor_cart.py: Each object generates 2 CSV files: one contains the part quantity and part number and the other file contains part quantity and part URL
+board_qty.csv: Contains the quantity of each board
+[distributor name]_automator.py: Reads a CSV file containing quantity and URL to autopopulate online shopping carts.
+User needs to replace Chrome webdriver file path with own local path.
+Digikey automator creates a text file containing the shopping cart ID.
+All others require user to checkout within the 300sec time limit after all products are added to cart.
+All CSV files containing board part information must be in the following format:
+Spaces are replaced with underscores
+E.g. CSV file for Battery Buzzer board is Battery_Buzzer.csv
+Formatting a board’s CSV file
+Why the specific formatting? BomAutomator’s process_board() function assumes a specific ordering of columns to extract distributor, manufacturer number, and part number. Make sure to check the CSV files for whether the column for Distributor name is the one before Part Number.
+All board CSV files must contain the following columns in the following order:
+Manufacturer Part Number
+Distributor
+Distributor Part Number
+
+Execution Flow:
+Run the bom_automator script to aggregate the data.
+Run each individual BOM automator script to autopopulate shopping carts.
+As of 1/28/17, there are scripts for Digikey, Allied Electronics, and Sparkfun
+
+Instructions:
+Move bom_automator.py, distributor_cart.py, board_qty.csv and all other BOM CSV files into the same directory. Remember to use the proper formatting for the distributor CSV files.
+In your terminal, run python bom_automator.py
+You will now see a series of instructions. Follow them by typing the names of your distributor CSV files and board_qty.csv files into the terminal.
+To autopopulate shopping carts of Digikey, Allied Electronics, or Sparkfun, python [INSERT DISTRIBUTOR NAME]_automator.py run on your terminal. 
+
+Expanding the Code:
+Adding a new distributor:
+DistributorCart contains a dictionary mapping distributor names to their company URLS. This is hard-coded, which means that if you want to add a distributor say for example “XYZ Company” whose URL is “xyz.com”, then you need to add the following line: self.distributor_urls[“xyz”] = (“http://xyz.com”)
+Make sure to check the generate_url() method generates the correct URL. In the past, we ran into spacing problems and had to brute force it to work.
+Formatting a board’s CSV file
+BomAutomator’s process_board() function assumes a specific ordering of columns to extract distributor, manufacturer number, and part number. Make sure to check the CSV files for whether the column for Distributor name is the one before Part Number.
