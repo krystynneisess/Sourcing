@@ -47,21 +47,9 @@ class DigikeyAutomator:
 		self.driver.find_element_by_id("addtoorderbutton").click()
 
 		try:
-			#popup = self.driver.switch_to_alert()
-			#popup.find_element_by_name("ctl00$ctl00$mainContentPlaceHolder$mainContentPlaceHolder$btnAddToOrder").click()
 			self.driver.find_element_by_name("ctl00$ctl00$mainContentPlaceHolder$mainContentPlaceHolder$btnAddToOrder").click()
 		except NoSuchElementException:
 			x = 0
-			# Need to disable value calculator
-		# try:
-		# 	#popup = self.driver.switch_to_alert()
-		# 	#popup.find_element_by_name("ctl00$ctl00$mainContentPlaceHolder$mainContentPlaceHolder$btnAddToOrder").click()
-		# 	#el = self.driver.find_elements_by_xpath("//div[@id='divAddPartButtons']//input[@id='btnAdd']")
-		# 	js = "document.getElementById('btnAdd').click()"
-		# 	self.driver.execute_script(js)
-		# 	print(el)
-		# except NoSuchElementException:
-		# 	print("hi")
 
 """Processes a Digikey CSV file containing quantity and URL.
 """
